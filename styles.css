@@ -197,3 +197,32 @@ html[lang="te"] body,html[lang="te"] button,html[lang="te"] .nav nav a{font-fami
   .gallery-item{flex-basis:220px;padding:11px;border-radius:15px;}
   .gallery-item:nth-child(2){transform:translateY(6px) rotate(0deg);}
 }
+
+/* Mobile-first finishing pass for name wrapping, image framing, and ceremony reveal polish. */
+.entry-bg{background-image:url('assets/opening1.jpg');background-attachment:fixed;filter:brightness(.96) saturate(1.06);}
+.hero>.bg{background-image:url('assets/tirumala-bg.png');background-attachment:fixed;}
+.couple-bg{background-image:url('assets/couple.png');background-attachment:fixed;}
+.hero>.bg,.couple-bg,.blessing>.bg,.gallery-bg,.ceremonies-bg{filter:brightness(1.22) saturate(1.08);}
+.entry-content h1,.hero h1{font-size:clamp(26px,6.2vw,82px);}
+.entry-content h1 span,.hero h1 span{white-space:nowrap;}
+.celebration::before{backdrop-filter:none;background:rgba(31,9,4,.24);}
+.gallery-track{gap:6px;}
+.gallery-item{padding:16px;border-radius:0;}
+.gallery-item img{border-radius:0;}
+.gallery-item:nth-child(2){transform:translateY(10px) rotate(0deg);}
+
+.couple-section .person .portrait{position:relative;isolation:isolate;animation:portraitFloat 5s ease-in-out infinite;box-shadow:0 0 18px rgba(226,189,103,.32),0 0 42px rgba(226,189,103,.14);}
+.couple-section .person .portrait::before{content:"";position:absolute;inset:-9px;border:1px solid rgba(226,189,103,.78);border-radius:50%;z-index:-1;animation:portraitRing 4s ease-in-out infinite;}
+.couple-section .person .portrait::after{content:"";position:absolute;inset:3px;border:1px solid rgba(255,243,202,.48);border-radius:50%;pointer-events:none;}
+.couple-section .person:nth-child(1) .portrait{animation-delay:-1.2s;}
+.couple-section .person:nth-child(3) .portrait{animation-delay:-3s;}
+.couple-section .portrait img{transition:transform .6s ease,filter .6s ease;}
+.couple-section .portrait:hover img{transform:scale(1.06);filter:saturate(1.12) brightness(1.08);}
+@keyframes portraitFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes portraitRing{0%,100%{transform:scale(.98);opacity:.58;box-shadow:0 0 6px rgba(226,189,103,.18)}50%{transform:scale(1.04);opacity:1;box-shadow:0 0 22px rgba(226,189,103,.58)}}
+@media(max-width:600px){
+  .entry-content h1,.hero h1{font-size:clamp(22px,6.3vw,36px);line-height:1.08;}
+  .gallery-track{gap:4px;}
+  .gallery-item{padding:12px;}
+  .gallery-item:nth-child(2){transform:translateY(6px) rotate(0deg);}
+}
