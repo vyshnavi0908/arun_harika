@@ -167,3 +167,33 @@ html[lang="te"] body,html[lang="te"] button,html[lang="te"] .nav nav a{font-fami
   #families .portrait{width:160px;height:160px;padding:5px;}
   .hero>.bg,.couple-bg{background-position:center center;}
 }
+
+/* Brighter fixed image layers and refined gallery framing. */
+.entry-bg{background-image:url('assets/tirumala-bg.png');filter:brightness(1.04) saturate(1.10);background-attachment:fixed;}
+.hero>.bg,.couple-bg{background-image:url('assets/tirumala-bg.png');background-attachment:fixed;}
+.blessing>.bg{background-image:url('assets/opening2 - Copy.png');background-attachment:fixed;}
+.hero>.bg,.couple-bg,.blessing>.bg,.gallery-bg,.ceremonies-bg{filter:brightness(1.40) saturate(1.14);}
+.hero>.shade,.couple-shade,.blessing>.shade{opacity:.72;}
+.entry-shade{opacity:.78;}
+.gallery-stage{max-width:1200px;margin-top:34px;}
+.gallery-track{gap:12px;}
+.gallery-item{flex-basis:min(27vw,260px);padding:14px;border-radius:18px;box-shadow:0 16px 36px rgba(0,0,0,.42),0 0 20px rgba(226,189,103,.16);}
+.gallery-item:nth-child(2){transform:translateY(10px) rotate(0deg);}
+.gallery-item img{border-radius:10px;}
+.gallery-item:hover{box-shadow:0 20px 42px rgba(0,0,0,.48),0 0 28px rgba(226,189,103,.34);}
+.ceremonies .event-card{background:rgba(255,247,225,.86);color:#4d2417;border-color:rgba(226,189,103,.88);backdrop-filter:blur(8px) brightness(1);box-shadow:0 14px 34px rgba(0,0,0,.34),0 0 20px rgba(226,189,103,.22);}
+.ceremonies .event-card h3{color:#5b2619;text-shadow:none;}
+.ceremonies .event-card .date{color:#8e6527;}
+.ceremonies .event-card p{color:#6b3c24;}
+.ceremonies .event-card a{background:#5b2619;color:#fff2d6;box-shadow:0 0 14px rgba(201,155,58,.25);}
+.ceremonies .event-card:hover{background:rgba(255,250,235,.94);}
+.celebration::after{content:"ॐ";position:relative;z-index:2;display:grid;place-items:center;width:118px;height:118px;border:1px solid rgba(241,205,117,.9);border-radius:50%;color:#f4d581;font:500 64px 'Cormorant Garamond';text-shadow:0 0 20px rgba(255,227,145,.9);box-shadow:0 0 0 12px rgba(226,189,103,.10),0 0 42px rgba(226,189,103,.45);animation:revealMandala 2.2s ease-out both;}
+.celebration.show::before{animation:revealVeil 2.2s ease-out both;}
+@keyframes revealMandala{0%{opacity:0;transform:scale(.25) rotate(-35deg);box-shadow:0 0 0 0 rgba(226,189,103,0)}45%{opacity:1;transform:scale(1.12) rotate(8deg)}100%{opacity:0;transform:scale(1.45) rotate(35deg);box-shadow:0 0 0 36px rgba(226,189,103,0)}}
+@keyframes revealVeil{0%,100%{opacity:0}20%,70%{opacity:1}}
+@media(max-width:600px){
+  .gallery-stage{margin-top:24px;}
+  .gallery-track{gap:9px;}
+  .gallery-item{flex-basis:220px;padding:11px;border-radius:15px;}
+  .gallery-item:nth-child(2){transform:translateY(6px) rotate(0deg);}
+}

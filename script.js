@@ -37,7 +37,7 @@ function applyLanguage(){
 
 const entryScreen=document.querySelector('#entryScreen');
 const enterBtn=document.querySelector('#enterBtn');
-enterBtn.addEventListener('click',()=>{entryScreen.classList.add('hide');document.body.classList.remove('locked');setTimeout(()=>entryScreen.remove(),900);});
+enterBtn.addEventListener('click',()=>{entryScreen.classList.add('hide');document.body.classList.remove('locked');const music=document.querySelector('#music');if(music){music.muted=false;music.play().then(markMusicPlaying).catch(()=>{});}setTimeout(()=>entryScreen.remove(),900);});
 document.body.classList.add('locked');
 
 document.querySelector('#teluguBtn').addEventListener('click',()=>{telugu=!telugu;applyLanguage();});
@@ -59,8 +59,7 @@ function revealScratch(){if(revealed)return;revealed=true;card.classList.add('re
 canvas.addEventListener('pointerdown',e=>{scratching=true;canvas.setPointerCapture?.(e.pointerId);scratchAt(e)});canvas.addEventListener('pointermove',e=>{if(scratching)scratchAt(e)});canvas.addEventListener('pointerup',()=>scratching=false);canvas.addEventListener('pointercancel',()=>scratching=false);window.addEventListener('resize',()=>{if(!revealed)resizeScratch()});
 
 function showCelebration(){
-  const wrap=document.querySelector('#celebration'), conf=document.querySelector('#confetti'); conf.innerHTML='';
-  for(let i=0;i<45;i++){const s=document.createElement('span');s.style.left=(Math.random()*100)+'%';s.style.animationDelay=(Math.random()*.45)+'s';s.style.transform=`rotate(${Math.random()*360}deg)`;conf.appendChild(s);}
+  const wrap=document.querySelector('#celebration');
   wrap.classList.add('show');setTimeout(()=>wrap.classList.remove('show'),3200);
 }
 
@@ -92,7 +91,7 @@ function renderEvents(){
 }
 renderEvents();
 
-const gallery=['0H6A6670.JPG.jpeg','IMG_4207.JPEG','IMG_4212.JPEG','IMG_4405.JPEG','IMG_4406.JPG.jpeg','IMG_4407.JPG.jpeg','IMG_4408.JPG.jpeg','IMG_4410.JPG.jpeg','IMG_4411.JPEG','IMG_4419.JPEG','IMG_4424.JPEG','IMG_4439.JPG.jpeg'];
+const gallery=['0H6A6670.JPG.jpeg','IMG_4207.JPEG','IMG_4212.JPEG','IMG_4405.JPEG','IMG_4406.JPG.jpeg','IMG_4407.JPG.jpeg','IMG_4408.JPG.jpeg','IMG_4410.JPG.jpeg','IMG_4419.JPEG','IMG_4424.JPEG','IMG_4439.JPG.jpeg'];
 const track=document.querySelector('#galleryTrack');track.innerHTML=gallery.map((f,i)=>`<figure class="gallery-item" data-src="assets/${f}"><img src="assets/${f}" alt="Wedding photograph ${i+1}" loading="lazy"></figure>`).join('');
 let idx=0;const items=[...track.children];
 function moveGallery(dir){if(window.innerWidth<951){track.scrollBy({left:dir*280,behavior:'smooth'});return;}idx=Math.max(0,Math.min(items.length-3,idx+dir));track.scrollTo({left:idx*325,behavior:'smooth'});}
@@ -105,6 +104,10 @@ document.querySelector('.ceremony-prev').onclick=()=>moveCeremony(-1);document.q
 const lb=document.querySelector('#lightbox'),lbImg=document.querySelector('#lightboxImg');track.addEventListener('click',e=>{const fig=e.target.closest('.gallery-item');if(!fig)return;lbImg.src=fig.dataset.src;lb.classList.add('open')});document.querySelector('#closeLightbox').onclick=()=>lb.classList.remove('open');lb.onclick=e=>{if(e.target===lb)lb.classList.remove('open')};
 
 const audio=document.querySelector('#music'),btn=document.querySelector('#musicBtn');
+audio.volume=.45;
+function markMusicPlaying(){audio.volume=.45;btn.classList.add('playing');btn.innerHTML=`🔊 <span data-i18n="pauseMusic">${telugu?'సంగీతం ఆపండి':'PAUSE MUSIC'}</span>`;}
+function attemptAutoplay(){audio.play().then(markMusicPlaying).catch(()=>{});}
+window.addEventListener('load',attemptAutoplay);
 btn.onclick=async()=>{if(audio.paused){try{await audio.play();btn.classList.add('playing');btn.innerHTML=`🔊 <span data-i18n="pauseMusic">${telugu?'సంగీతం ఆపండి':'PAUSE MUSIC'}</span>`}catch(err){alert(telugu?'మ్యూజిక్ ప్లే చేయడానికి మళ్లీ నొక్కండి.':'Tap again to allow the wedding music to play.')}}else{audio.pause();btn.classList.remove('playing');btn.innerHTML=`♫ <span data-i18n="playMusic">${telugu?'సంగీతం వినండి':'PLAY MUSIC'}</span>`}};
 
 const sections=[...document.querySelectorAll('main section[id]')],dots=[...document.querySelectorAll('.side-dots span')];const navLinks=[...document.querySelectorAll('.nav nav a')];
