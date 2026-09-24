@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#1d0c08" />
+<title>Lakshmi Venkata Sri Harika & Muthyala Arun Kumar — Wedding Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="entry-screen" id="entryScreen">
+  <div class="entry-bg"></div><div class="entry-shade"></div>
+  <div class="entry-content">
+    <div class="om entry-om">ॐ</div>
+    <p class="entry-mantra" data-i18n="entryMantra">OM NAMO VENKATESAYA</p>
+    <h1><span data-i18n="brideName">Lakshmi Venkata Sri Harika</span> <i>&</i><br><span data-i18n="groomName">Muthyala Arun Kumar</span></h1>
+    <p class="entry-date">14 · 10 · 2026</p>
+    <button class="enter-btn" id="enterBtn"><span id="enterText" data-i18n="enter">ENTER WEBSITE</span> <b>→</b></button>
+  </div>
+</div>
+
+<header class="nav" id="top">
+  <a class="brand" href="#home">L <span>&</span> A <b>ॐ</b></a>
+  <nav>
+    <a href="#home" data-i18n="navHome">HOME</a>
+    <a href="#welcome" data-i18n="navWelcome">WELCOME</a>
+    <a href="#blessings" data-i18n="navBlessings">BLESSINGS</a>
+    <a href="#families" data-i18n="navFamilies">FAMILIES</a>
+    <a href="#gallery" data-i18n="navGallery">GALLERY</a>
+    <a href="#ceremonies" data-i18n="navCeremonies">CEREMONIES</a>
+    <a href="#invited" data-i18n="navInvited">INVITED</a>
+  </nav>
+  <button class="telugu" id="teluguBtn" type="button">తెలుగు</button>
+</header>
+
+<div class="side-dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<button class="music" id="musicBtn" type="button">♫ <span data-i18n="playMusic">PLAY MUSIC</span></button>
+<audio id="music" loop preload="metadata" src="assets/music.mp3"></audio>
+
+<main>
+<section id="home" class="hero section-dark">
+  <div class="bg"></div><div class="shade"></div>
+  <div class="hero-content">
+    <div class="om">ॐ</div>
+    <p class="eyebrow" data-i18n="blessingLine">WITH THE BLESSINGS OF LORD VENKATESWARA SWAMY</p>
+    <p class="eyebrow" data-i18n="gettingMarried">WE ARE GETTING MARRIED</p>
+    <h1><span data-i18n="brideName">Lakshmi Venkata Sri Harika</span> <i>&</i><br><span data-i18n="groomName">Muthyala Arun Kumar</span></h1>
+    <p class="save" data-i18n="saveDate">SAVE THE DATE</p>
+    <p class="venue-line" data-i18n="venueLine">14 OCTOBER 2026 · SRI KANYA GRAND · MANDAPETA</p>
+
+    <div class="scratch-area">
+      <p class="tiny-title" data-i18n="scratchTitle">— SCRATCH TO REVEAL —</p>
+      <div class="scratch-card" id="scratchCard">
+        <div class="reveal-content">
+          <p class="reveal-om">ॐ</p>
+          <p class="muhurtham" data-i18n="muhurtham">14 OCTOBER 2026 · MUHURTHAM 8:29 PM</p>
+          <p class="reveal-sub" data-i18n="muhurthamSub">THE AUSPICIOUS WEDDING MUHURTHAM</p>
+          <div class="countdown" id="countdown">
+            <div><strong id="days">00</strong><small data-i18n="days">DAYS</small></div>
+            <div><strong id="hours">00</strong><small data-i18n="hours">HRS</small></div>
+            <div><strong id="mins">00</strong><small data-i18n="mins">MINS</small></div>
+            <div><strong id="secs">00</strong><small data-i18n="secs">SECS</small></div>
+          </div>
+          <p class="mantra" data-i18n="forever">ॐ Until our forever begins ॐ</p>
+        </div>
+        <canvas id="scratchCanvas" aria-label="Scratch to reveal wedding date and countdown"></canvas>
+      </div>
+      <p class="scratch-help" data-i18n="scratchHelp">CLICK & DRAG · SWIPE TO REVEAL</p>
+    </div>
+  </div>
+</section>
+
+<section id="welcome" class="section-light section-padding">
+  <div class="ornament">ॐ</div><p class="eyebrow dark" data-i18n="noteFromUs">A NOTE FROM US</p><h2 data-i18n="welcomeTitle">WELCOME</h2>
+  <p class="lead" data-i18n="welcomeText">With hearts full of joy and gratitude, we invite you to celebrate the beginning of a beautiful new chapter. Your presence, blessings and love will make these precious moments even more special.</p>
+  <p class="signature" data-i18n="signature">With love & gratitude,<br><strong>Lakshmi Venkata Sri Harika & Muthyala Arun Kumar</strong></p>
+  <p class="quote" data-i18n="govinda">“Govinda! Govinda! Venkata Ramana Govinda!”</p>
+  <p class="invocation" data-i18n="invocation">A traditional invocation to Lord Venkateswara</p>
+</section>
+
+<section id="blessings" class="section-dark blessing">
+  <div class="bg"></div><div class="shade"></div>
+  <div class="center-content"><div class="om small">ॐ</div><p class="eyebrow" data-i18n="seekingGrace">SEEKING HIS GRACE</p><h2 data-i18n="blessingsTitle">BLESSINGS FROM TIRUMALA</h2>
+  <div class="blessing-mark"><img src="assets/blessings.jpg" alt="Tirumala blessings"></div>
+  <p class="blessing-text" data-i18n="blessingQuote">“May the divine blessings of Lord Venkateswara from the sacred hills of Tirumala fill this union with love, peace, prosperity and devotion, and guide the couple throughout their beautiful journey together.”</p>
+  <p class="mantra" data-i18n="withFaith">With faith in Sri Venkateswara Swamy</p></div>
+</section>
+
+<section id="families" class="section-light couple-section section-padding">
+  <div class="couple-bg"></div><div class="couple-shade"></div>
+  <div class="couple-content">
+    <div class="om">ॐ</div><p class="eyebrow dark" data-i18n="twoHearts">TWO HEARTS · ONE PROMISE</p><h2 data-i18n="meetCouple">MEET THE COUPLE</h2><div class="gold-line"></div>
+    <div class="couple-grid">
+      <article class="person">
+        <div class="portrait"><img src="assets/IMG_4424.JPEG" alt="Bride portrait"></div>
+        <h3 data-i18n="brideName">Lakshmi Venkata Sri Harika</h3>
+        <p class="role" data-i18n="bride">BRIDE</p>
+        <p class="parent-detail" data-i18n="brideParents">D/O Sri Sriramachandra Murthy & Smt. Bagyalakshmi</p>
+      </article>
+      <div class="amp">&</div>
+      <article class="person">
+        <div class="portrait"><img src="assets/0H6A6670.JPG.jpeg" alt="Groom portrait"></div>
+        <h3 data-i18n="groomName">Muthyala Arun Kumar</h3>
+        <p class="role" data-i18n="groom">GROOM</p>
+        <p class="parent-detail" data-i18n="groomParents">S/O Late Sri Muthyala Venkateswara Rao & Smt. Seetha Mahalakshmi</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="section-dark gallery-section">
+  <div class="bg gallery-bg"></div><div class="shade"></div>
+  <div class="gallery-inner"><p class="eyebrow" data-i18n="moments">MOMENTS WE TREASURE</p><h2 data-i18n="galleryTitle">GALLERY</h2>
+    <div class="gallery-stage"><div class="gallery-track" id="galleryTrack"></div></div>
+    <div class="slider-controls"><button class="gallery-arrow prev" aria-label="Previous">‹</button><span data-i18n="swipe">SWIPE OR USE THE ARROWS</span><button class="gallery-arrow next" aria-label="Next">›</button></div>
+  </div>
+</section>
+
+<section id="ceremonies" class="section-dark ceremonies">
+  <div class="bg ceremonies-bg"></div><div class="shade"></div>
+  <div class="ceremony-inner"><p class="eyebrow" data-i18n="presence">YOUR PRESENCE IS OUR BLESSING</p><h2 data-i18n="ceremoniesTitle">SCHEDULE OF SACRED CEREMONIES</h2>
+    <div class="event-track" id="eventTrack"></div>
+    <div class="slider-controls ceremony-controls"><button class="gallery-arrow ceremony-prev" aria-label="Previous ceremony">‹</button><span data-i18n="swipeCeremonies">SWIPE OR USE THE ARROWS</span><button class="gallery-arrow ceremony-next" aria-label="Next ceremony">›</button></div>
+  </div>
+</section>
+
+<section id="invited" class="section-light section-padding invited">
+  <div class="ornament">ॐ</div><p class="eyebrow dark" data-i18n="cordially">WE CORDIALLY INVITE YOU TO</p><h2 data-i18n="invitedTitle">LAKSHMI & ARUN</h2><p class="lead" data-i18n="invitedText">Join us as we celebrate every ritual, every smile and every blessing that leads to our forever.</p>
+  <div class="invite-grid"><div><h3 data-i18n="preWedding">HALDI & SANGEETH</h3><p data-i18n="skyland">Skyland, Mandapeta</p><div class="invite-countdown" data-target="2026-10-12T15:00:00+05:30"><div><strong>00</strong><small data-i18n="days">DAYS</small></div><div><strong>00</strong><small data-i18n="hours">HRS</small></div><div><strong>00</strong><small data-i18n="mins">MINS</small></div><div><strong>00</strong><small data-i18n="secs">SECS</small></div></div><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&destination=Skyland%2C%20Mandapeta%2C%20Andhra%20Pradesh" target="_blank" rel="noopener" data-i18n="directions">📍 GET DIRECTIONS</a></div><div><h3 data-i18n="weddingVenue">WEDDING VENUE</h3><p data-i18n="weddingAddress">Sri Kanya Grand<br>Gollapantha Road, Near AS Grand, Mandapeta</p><div class="invite-countdown" data-target="2026-10-14T20:29:00+05:30"><div><strong>00</strong><small data-i18n="days">DAYS</small></div><div><strong>00</strong><small data-i18n="hours">HRS</small></div><div><strong>00</strong><small data-i18n="mins">MINS</small></div><div><strong>00</strong><small data-i18n="secs">SECS</small></div></div><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&destination=Sri%20Kanya%20Grand%2C%20Gollapantha%20Road%2C%20Mandapeta%2C%20Andhra%20Pradesh" target="_blank" rel="noopener" data-i18n="directions">📍 GET DIRECTIONS</a></div></div>
+  <div class="qr-wrap"><img src="assets/wedding-venue-qr.png" alt="QR code for wedding venue map"><p data-i18n="scanVenue">SCAN FOR WEDDING VENUE</p></div>
+</section>
+
+<footer>
+  <div class="footer-om">ॐ</div>
+  <p class="footer-names"><span data-i18n="brideName">Lakshmi Venkata Sri Harika</span> &amp; <span data-i18n="groomName">Muthyala Arun Kumar</span></p>
+  <p class="footer-date" data-i18n="footerDate">14 OCTOBER 2026 · MANDAPETA</p>
+  <p data-i18n="twoSouls">Two souls, one beautiful journey.</p>
+  <p data-i18n="thankYou">With love and gratitude, thank you for being part of our story.</p>
+  <div class="footer-divider"></div>
+  <p class="footer-heading" data-i18n="seekingBlessings">SEEKING YOUR BLESSINGS</p>
+  <p data-i18n="seekingText">As we begin this beautiful new chapter, we warmly seek your love, prayers, and blessings.</p>
+  <p class="footer-heading" data-i18n="invitedBy">INVITED BY</p>
+  <p data-i18n="invitedByText">Family & loved ones of Lakshmi Venkata Sri Harika & Muthyala Arun Kumar</p>
+</footer>
+
+<div class="celebration" id="celebration" aria-hidden="true"><div class="confetti" id="confetti"></div></div>
+<div class="lightbox" id="lightbox"><button id="closeLightbox">×</button><img id="lightboxImg" alt="Wedding photograph"></div>
+<script src="script.js"></script>
+</body>
+</html>
