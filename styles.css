@@ -292,3 +292,18 @@ main section{scroll-margin-top:68px;}
   .gallery-section .gallery-item:nth-child(odd){transform:rotate(-1.2deg);}
   .gallery-section .gallery-item:nth-child(even){transform:rotate(1.2deg);}
 }
+
+/* Darker devotional sections with focused, low-intensity motion. */
+.blessing>.bg{filter:brightness(.60) saturate(.88);}
+.blessing>.shade{background:linear-gradient(90deg,rgba(10,3,2,.84),rgba(28,8,4,.70) 50%,rgba(10,3,2,.84)),linear-gradient(180deg,rgba(6,2,1,.40),rgba(14,4,2,.86));}
+.couple-section .couple-bg{filter:brightness(.60) saturate(.90);}
+.couple-section .couple-shade{background:linear-gradient(180deg,rgba(25,7,4,.66),rgba(25,7,4,.90));}
+.blessing .center-content,.couple-section .couple-content{animation:sectionGlowIn 1s both;}
+.blessing .blessing-mark{animation:blessingPulse 4.5s ease-in-out infinite;}
+.blessing .om.small,.couple-section .om{animation:devotionalGlow 3.8s ease-in-out infinite alternate;}
+.couple-section .gold-line{animation:goldLineSweep 3.2s ease-in-out infinite alternate;}
+.blessing-text,.parent-detail{text-shadow:0 0 14px rgba(255,231,171,.16);}
+@keyframes sectionGlowIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes blessingPulse{0%,100%{box-shadow:0 0 18px rgba(226,189,103,.16),0 0 44px rgba(226,189,103,.06)}50%{box-shadow:0 0 28px rgba(226,189,103,.34),0 0 64px rgba(226,189,103,.14)}}
+@keyframes devotionalGlow{from{text-shadow:0 0 8px rgba(226,189,103,.22)}to{text-shadow:0 0 24px rgba(226,189,103,.78)}}
+@keyframes goldLineSweep{from{box-shadow:0 0 4px rgba(226,189,103,.18);transform:scaleX(.92)}to{box-shadow:0 0 18px rgba(226,189,103,.70);transform:scaleX(1)}}
