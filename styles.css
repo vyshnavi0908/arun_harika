@@ -226,3 +226,29 @@ html[lang="te"] body,html[lang="te"] button,html[lang="te"] .nav nav a{font-fami
   .gallery-item{padding:12px;}
   .gallery-item:nth-child(2){transform:translateY(6px) rotate(0deg);}
 }
+
+/* Final contrast and spacing pass. */
+.entry-content h1{text-align:center;line-height:1.04;}
+.entry-content h1 span{display:block;width:100%;white-space:nowrap;}
+.entry-content h1 i{display:inline-block;line-height:1;}
+.entry-bg{filter:brightness(.78) saturate(.98);}
+.hero>.bg,.couple-bg,.blessing>.bg,.gallery-bg,.ceremonies-bg{filter:brightness(1.04) saturate(1.02);}
+.gallery-track{gap:0;}
+.gallery-item{margin:0;border-radius:0;}
+.gallery-item img{border-radius:0;}
+.gallery-track,.event-track{touch-action:pan-x;scroll-behavior:smooth;}
+.ceremonies .event-card{background:rgba(30,9,5,.82);color:#fff0d2;border-color:rgba(204,157,66,.60);backdrop-filter:blur(7px) brightness(.72);box-shadow:0 14px 34px rgba(0,0,0,.58),0 0 14px rgba(226,189,103,.10);}
+.ceremonies .event-card h3{color:#fff0d2;text-shadow:0 0 12px rgba(226,189,103,.18);}
+.ceremonies .event-card .date{color:#dfb968;}
+.ceremonies .event-card p{color:#f0dec0;}
+.ceremonies .event-card a{background:rgba(91,38,25,.72);color:#ffeac0;}
+.ceremonies .event-card:hover{background:rgba(39,12,6,.88);}
+.confetti{z-index:3;}
+.confetti span{position:absolute;top:50%;left:50%;width:10px;height:18px;border-radius:2px;background:#e6bd68;opacity:0;animation:paperPop 2.4s cubic-bezier(.2,.8,.2,1) forwards;}
+.confetti span:nth-child(3n){background:#fff1cf;width:7px;height:13px;}
+.confetti span:nth-child(4n){background:#9d2d2d;width:11px;height:7px;border-radius:1px;}
+@keyframes paperPop{0%{opacity:0;transform:translate(-50%,-50%) scale(.2) rotate(0deg)}18%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--x)) ,calc(-50% + var(--y))) scale(1) rotate(var(--r))}}
+@media(max-width:600px){
+  .entry-content h1{font-size:clamp(21px,6.1vw,34px);}
+  .gallery-track{gap:0;}
+}

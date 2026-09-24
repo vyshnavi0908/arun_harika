@@ -60,7 +60,16 @@ function revealScratch(){if(revealed)return;revealed=true;card.classList.add('re
 canvas.addEventListener('pointerdown',e=>{scratching=true;lastPoint=null;canvas.setPointerCapture?.(e.pointerId);scratchAt(e)});canvas.addEventListener('pointermove',e=>{if(scratching)scratchAt(e)});canvas.addEventListener('pointerup',()=>{scratching=false;lastPoint=null});canvas.addEventListener('pointercancel',()=>{scratching=false;lastPoint=null});window.addEventListener('resize',()=>{if(!revealed)resizeScratch()});
 
 function showCelebration(){
-  const wrap=document.querySelector('#celebration');
+  const wrap=document.querySelector('#celebration'),conf=document.querySelector('#confetti');
+  conf.innerHTML='';
+  for(let i=0;i<30;i++){
+    const paper=document.createElement('span');
+    paper.style.setProperty('--x',`${Math.cos(i/30*Math.PI*2)*(120+Math.random()*190)}px`);
+    paper.style.setProperty('--y',`${Math.sin(i/30*Math.PI*2)*(90+Math.random()*150)}px`);
+    paper.style.setProperty('--r',`${Math.random()*720-360}deg`);
+    paper.style.animationDelay=`${Math.random()*.18}s`;
+    conf.appendChild(paper);
+  }
   wrap.classList.add('show');setTimeout(()=>wrap.classList.remove('show'),3200);
 }
 
@@ -92,7 +101,7 @@ function renderEvents(){
 }
 renderEvents();
 
-const gallery=['0H6A6670.JPG.jpeg','IMG_4207.JPEG','IMG_4212.JPEG','IMG_4405.JPEG','IMG_4406.JPG.jpeg','IMG_4407.JPG.jpeg','IMG_4408.JPG.jpeg','IMG_4410.JPG.jpeg','IMG_4419.JPEG','IMG_4424.JPEG','IMG_4439.JPG.jpeg'];
+const gallery=['0H6A6670.JPG.jpeg','IMG_4212.JPEG','IMG_4405.JPEG','IMG_4406.JPG.jpeg','IMG_4407.JPG.jpeg','IMG_4408.JPG.jpeg','IMG_4410.JPG.jpeg','IMG_4419.JPEG','IMG_4424.JPEG','IMG_4439.JPG.jpeg'];
 const track=document.querySelector('#galleryTrack');track.innerHTML=gallery.map((f,i)=>`<figure class="gallery-item" data-src="assets/${f}"><img src="assets/${f}" alt="Wedding photograph ${i+1}" loading="lazy"></figure>`).join('');
 let idx=0;const items=[...track.children];
 function moveGallery(dir){if(window.innerWidth<951){track.scrollBy({left:dir*280,behavior:'smooth'});return;}idx=Math.max(0,Math.min(items.length-3,idx+dir));track.scrollTo({left:idx*325,behavior:'smooth'});}
