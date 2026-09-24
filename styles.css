@@ -198,6 +198,21 @@ html[lang="te"] body,html[lang="te"] button,html[lang="te"] .nav nav a{font-fami
   .gallery-item:nth-child(2){transform:translateY(6px) rotate(0deg);}
 }
 
+/* Final smooth-scrolling and framing pass. */
+html{scroll-behavior:smooth;scroll-padding-top:68px;}
+body{overscroll-behavior-x:none;}
+main section{scroll-margin-top:68px;}
+.couple-bg{filter:brightness(.82) saturate(.96);}
+.couple-shade{background:linear-gradient(180deg,rgba(35,12,7,.52),rgba(35,12,7,.80));}
+.entry-content h1{width:100%;max-width:900px;margin-left:auto;margin-right:auto;text-align:center;}
+.entry-content h1 span{display:block;text-align:center;margin-inline:auto;}
+.gallery-track{gap:8px;padding-inline:max(0px,calc((100% - min(27vw,260px))/2));scroll-padding-inline:max(0px,calc((100% - min(27vw,260px))/2));}
+.gallery-item:first-child{transform:translateY(10px) rotate(0deg);}
+@media(max-width:600px){
+  .gallery-track{gap:6px;padding-inline:calc((100% - 220px)/2);scroll-padding-inline:calc((100% - 220px)/2);}
+  .gallery-item:first-child{transform:translateY(6px) rotate(0deg);}
+}
+
 /* Mobile-first finishing pass for name wrapping, image framing, and ceremony reveal polish. */
 .entry-bg{background-image:url('assets/opening1.jpg');background-attachment:fixed;filter:brightness(.96) saturate(1.06);}
 .hero>.bg{background-image:url('assets/tirumala-bg.png');background-attachment:fixed;}
@@ -251,4 +266,11 @@ html[lang="te"] body,html[lang="te"] button,html[lang="te"] .nav nav a{font-fami
 @media(max-width:600px){
   .entry-content h1{font-size:clamp(21px,6.1vw,34px);}
   .gallery-track{gap:0;}
+}
+
+/* Authoritative end overrides for the final mobile/scroll layout. */
+.couple-section .couple-bg{filter:brightness(.82) saturate(.96);}
+.gallery-section .gallery-track{gap:8px;padding-inline:max(0px,calc((100% - min(27vw,260px))/2));scroll-padding-inline:max(0px,calc((100% - min(27vw,260px))/2));}
+@media(max-width:600px){
+  .gallery-section .gallery-track{gap:6px;padding-inline:calc((100% - 220px)/2);scroll-padding-inline:calc((100% - 220px)/2);}
 }
