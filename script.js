@@ -3,10 +3,15 @@ const weddingDate = new Date('2026-10-14T20:29:00+05:30').getTime();
 function tick(){
   const d=Math.max(0,weddingDate-Date.now());
   const s=Math.floor(d/1000);
-  document.querySelector('#days').textContent=String(Math.floor(s/86400)).padStart(2,'0');
-  document.querySelector('#hours').textContent=String(Math.floor(s%86400/3600)).padStart(2,'0');
-  document.querySelector('#mins').textContent=String(Math.floor(s%3600/60)).padStart(2,'0');
-  document.querySelector('#secs').textContent=String(s%60).padStart(2,'0');
+  const days=document.querySelector('#days');
+  const hours=document.querySelector('#hours');
+  const mins=document.querySelector('#mins');
+  const secs=document.querySelector('#secs');
+  if(!days||!hours||!mins||!secs)return;
+  days.textContent=String(Math.floor(s/86400)).padStart(2,'0');
+  hours.textContent=String(Math.floor(s%86400/3600)).padStart(2,'0');
+  mins.textContent=String(Math.floor(s%3600/60)).padStart(2,'0');
+  secs.textContent=String(s%60).padStart(2,'0');
 }
 tick(); setInterval(tick,1000);
 
