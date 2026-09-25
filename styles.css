@@ -209,13 +209,13 @@ main section{scroll-margin-top:68px;}
 .gallery-track{gap:8px;padding-inline:max(0px,calc((100% - min(27vw,260px))/2));scroll-padding-inline:max(0px,calc((100% - min(27vw,260px))/2));}
 .gallery-item:first-child{transform:translateY(10px) rotate(0deg);}
 
-.couple-bg{background-image:url('assets/couple1.png');filter:brightness(1.18) saturate(1.18) contrast(1.04);}
+.couple-bg{background-image:url('assets/couple1.png');background-position:50% 50%;filter:brightness(1.42) saturate(1.18) contrast(1.04);}
 .couple-shade{display:none;}
 #families .couple-content{filter:none;}
-#families .portrait{padding:0;border:0;border-radius:50%;background:none;box-shadow:none;filter:none;overflow:hidden;}
-#families .portrait img{border-radius:50%;box-shadow:none;filter:none;transform:scale(1.14);}
+#families .portrait{padding:0;border:2px solid rgba(226,189,103,.9);border-radius:50%;background:none;box-shadow:none;filter:none;overflow:hidden;}
+#families .portrait img{border-radius:50%;box-shadow:none;filter:none;transform:scale(1.25);}
 #families .person:first-child .portrait img{object-position:center 34%;}
-#families .person:last-child .portrait img{transform:scale(1.1);object-position:center 38%;}
+#families .person:last-child .portrait img{transform:scale(1.2);object-position:center 38%;}
 .gallery-bg{filter:brightness(.48) saturate(.82);}
 .gallery-section>.shade{background:rgba(10,3,2,.48);}
 .scratch-area{max-width:360px;}
