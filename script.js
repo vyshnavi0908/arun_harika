@@ -101,7 +101,7 @@ function renderEvents(){
 }
 renderEvents();
 
-const gallery=['couple-close.jpg','couple-bw.jpg','couple-soft.jpg','couple-rings.jpg','couple-garden.jpg','couple-forehead.jpg','couple-stage.jpg'];
+const gallery=['couple-close.jpg','couple-bw.jpg','couple-soft.jpg','couple-rings.jpg','couple-garden.jpg','couple-forehead.jpg'];
 const track=document.querySelector('#galleryTrack');track.innerHTML=gallery.map((f,i)=>`<figure class="gallery-item" data-src="assets/${f}"><img src="assets/${f}" alt="Wedding photograph ${i+1}" loading="lazy"></figure>`).join('');
 let idx=0;const items=[...track.children];
 function moveGallery(dir){if(window.innerWidth<951){track.scrollBy({left:dir*280,behavior:'smooth'});return;}idx=Math.max(0,Math.min(items.length-3,idx+dir));track.scrollTo({left:idx*325,behavior:'smooth'});}
