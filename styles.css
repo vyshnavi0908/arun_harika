@@ -347,3 +347,10 @@ main section{scroll-margin-top:68px;}
 @keyframes blessingPulse{0%,100%{box-shadow:0 0 18px rgba(226,189,103,.16),0 0 44px rgba(226,189,103,.06)}50%{box-shadow:0 0 28px rgba(226,189,103,.34),0 0 64px rgba(226,189,103,.14)}}
 @keyframes devotionalGlow{from{text-shadow:0 0 8px rgba(226,189,103,.22)}to{text-shadow:0 0 24px rgba(226,189,103,.78)}}
 @keyframes goldLineSweep{from{box-shadow:0 0 4px rgba(226,189,103,.18);transform:scaleX(.92)}to{box-shadow:0 0 18px rgba(226,189,103,.70);transform:scaleX(1)}}
+.entry-content h1{font-size:92px;}
+@media(max-width:600px){.entry-content h1{font-size:52px;}}
+.scratch-area{max-width:500px;}
+.scratch-card{aspect-ratio:2.1 / 1;}
+.scratch-save{font:600 14px Cinzel;letter-spacing:.14em;color:#e2bd67;margin:0 0 12px;text-align:center;}
+.dress-code-row{display:block;white-space:nowrap;font-size:13px;}
+@media(max-width:600px){.dress-code-row{font-size:11px;}}
