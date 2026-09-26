@@ -368,3 +368,15 @@ main section{scroll-margin-top:68px;}
   .couple-grid .amp{font-size:40px;line-height:1;}
   .invited h2{font-size:40px;}
 }
+.engagement-video-section{min-height:0;padding:96px 24px 112px;background:var(--brown);}
+.engagement-video-content{width:min(100%,1040px);margin:0 auto;text-align:center;}
+.engagement-video-content h2{margin:0 0 10px;color:var(--gold2);font:600 38px Cinzel;}
+.engagement-video-content p{margin:0 0 28px;color:var(--cream);font:italic 21px 'Cormorant Garamond',serif;}
+.engagement-video{width:100%;max-width:100%;aspect-ratio:16 / 9;margin:0 auto;overflow:hidden;background:#100704;border:2px solid var(--gold);border-radius:14px;box-shadow:0 0 28px rgba(226,189,103,.28);}
+.engagement-video-embed{display:block;width:100%;height:100%;border:0;}
+@media(max-width:600px){
+  .engagement-video-section{padding:68px 16px 80px;}
+  .engagement-video-content h2{font-size:30px;}
+  .engagement-video-content p{font-size:18px;margin-bottom:20px;}
+  .engagement-video{border-radius:10px;}
+}
