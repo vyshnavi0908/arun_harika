@@ -356,3 +356,11 @@ main section{scroll-margin-top:68px;}
 .scratch-card{aspect-ratio:2.1 / 1;}
 .scratch-save{font:600 14px Cinzel;letter-spacing:.14em;color:#e2bd67;margin:0 0 12px;text-align:center;}
 .dress-code-row{display:block;white-space:nowrap;}
+.couple-section .person h3{font-size:24px;white-space:nowrap;}
+.invited h2{font-size:68px;}
+@media(max-width:960px){
+  .couple-grid{grid-template-columns:1fr;gap:12px;}
+  .couple-section .person h3{font-size:18px;}
+  .couple-grid .amp{font-size:40px;line-height:1;}
+  .invited h2{font-size:40px;}
+}
