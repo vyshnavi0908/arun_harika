@@ -42,7 +42,7 @@ function applyLanguage(){
 
 const entryScreen=document.querySelector('#entryScreen');
 const enterBtn=document.querySelector('#enterBtn');
-enterBtn.addEventListener('click',()=>{entryScreen.classList.add('hide');document.body.classList.remove('locked');const music=document.querySelector('#music');if(music){music.muted=false;music.play().then(markMusicPlaying).catch(()=>{});}setTimeout(()=>entryScreen.remove(),900);});
+enterBtn.addEventListener('click',()=>{entryScreen.classList.add('hide');document.body.classList.remove('locked');const music=document.querySelector('#music');if(music&&!youtubePlaying){music.muted=false;music.play().then(markMusicPlaying).catch(()=>{});}setTimeout(()=>entryScreen.remove(),900);});
 document.body.classList.add('locked');
 
 document.querySelector('#teluguBtn').addEventListener('click',()=>{telugu=!telugu;applyLanguage();});
@@ -119,11 +119,30 @@ document.querySelector('.ceremony-prev').onclick=()=>moveCeremony(-1);document.q
 const lb=document.querySelector('#lightbox'),lbImg=document.querySelector('#lightboxImg');track.addEventListener('click',e=>{const fig=e.target.closest('.gallery-item');if(!fig)return;lbImg.src=fig.dataset.src;lb.classList.add('open')});document.querySelector('#closeLightbox').onclick=()=>lb.classList.remove('open');lb.onclick=e=>{if(e.target===lb)lb.classList.remove('open')};
 
 const audio=document.querySelector('#music'),btn=document.querySelector('#musicBtn');
+let youtubePlaying=false,resumeMusicAfterVideo=false;
 audio.volume=.45;
 function markMusicPlaying(){audio.volume=.45;btn.classList.add('playing');btn.innerHTML=`🔊 <span data-i18n="pauseMusic">${telugu?'సంగీతం ఆపండి':'PAUSE MUSIC'}</span>`;}
-function attemptAutoplay(){audio.play().then(markMusicPlaying).catch(()=>{});}
+function markMusicPaused(){btn.classList.remove('playing');btn.innerHTML=`♫ <span data-i18n="playMusic">${telugu?'సంగీతం వినండి':'PLAY MUSIC'}</span>`;}
+function attemptAutoplay(){if(!youtubePlaying)audio.play().then(markMusicPlaying).catch(()=>{});}
 window.addEventListener('load',attemptAutoplay);
-btn.onclick=async()=>{if(audio.paused){try{await audio.play();btn.classList.add('playing');btn.innerHTML=`🔊 <span data-i18n="pauseMusic">${telugu?'సంగీతం ఆపండి':'PAUSE MUSIC'}</span>`}catch(err){alert(telugu?'మ్యూజిక్ ప్లే చేయడానికి మళ్లీ నొక్కండి.':'Tap again to allow the wedding music to play.')}}else{audio.pause();btn.classList.remove('playing');btn.innerHTML=`♫ <span data-i18n="playMusic">${telugu?'సంగీతం వినండి':'PLAY MUSIC'}</span>`}};
+btn.onclick=async()=>{if(youtubePlaying)return;if(audio.paused){try{await audio.play();markMusicPlaying()}catch(err){alert(telugu?'మ్యూజిక్ ప్లే చేయడానికి మళ్లీ నొక్కండి.':'Tap again to allow the wedding music to play.')}}else{audio.pause();markMusicPaused()}};
+
+const engagementVideo=document.querySelector('.engagement-video-embed');
+window.onYouTubeIframeAPIReady=()=>{
+  new YT.Player(engagementVideo,{events:{onStateChange:event=>{
+    if(event.data===YT.PlayerState.PLAYING){
+      if(!youtubePlaying)resumeMusicAfterVideo=!audio.paused;
+      youtubePlaying=true;
+      if(!audio.paused){audio.pause();markMusicPaused();}
+    }else if((event.data===YT.PlayerState.PAUSED||event.data===YT.PlayerState.ENDED)&&youtubePlaying){
+      youtubePlaying=false;
+      if(resumeMusicAfterVideo){resumeMusicAfterVideo=false;audio.play().then(markMusicPlaying).catch(()=>{});}
+    }
+  }}});
+};
+const youtubeApi=document.createElement('script');
+youtubeApi.src='https://www.youtube.com/iframe_api';
+document.head.appendChild(youtubeApi);
 
 const sections=[...document.querySelectorAll('main section[id]')],dots=[...document.querySelectorAll('.side-dots span')];const navLinks=[...document.querySelectorAll('.nav nav a')];
 const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=sections.indexOf(e.target);dots.forEach((d,n)=>d.classList.toggle('active',n===i));navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}}),{threshold:.45});sections.forEach(s=>observer.observe(s));
